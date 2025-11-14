@@ -66,8 +66,11 @@
       #root > div {
         transition: transform 0.3s ease-in-out;
       }
-      body.cart-open #root > div {
-        transform: translateX(-320px);
+      /* On desktop, push content to the left when cart is open */
+      @media (min-width: 768px) {
+        body.cart-open #root > div {
+          transform: translateX(-320px);
+        }
       }
       
       /* Animations for hero glass effect */

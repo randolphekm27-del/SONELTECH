@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SONELTECH | Solutions Électriques Industrielles & Formations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body { 
+        font-family: 'Exo 2', sans-serif;
+        background-color: #FFFFFF;
+        color: #666666;
+      }
+      .page-hero {
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .glass-effect { 
+        background: rgba(255, 255, 255, 0.1); 
+        backdrop-filter: blur(12px); 
+        -webkit-backdrop-filter: blur(12px); 
+        border: 1px solid rgba(255, 255, 255, 0.2); 
+      }
+      .card-hover-effect { 
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        transform-style: preserve-3d;
+      }
+      .card-hover-effect:hover { 
+        transform: translateY(-8px) perspective(1000px) rotateX(2deg) rotateY(-4deg) scale(1.02); 
+        box-shadow: 0 20px 30px -10px rgba(249, 115, 22, 0.15); 
+      }
+      .glow-border {
+        position: relative;
+        overflow: hidden;
+      }
+      .glow-border:hover {
+        border-color: #F97316; /* Orange vif */
+      }
+      .glow-border::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.2), transparent);
+        transition: left 0.5s ease-out;
+      }
+      .glow-border:hover::before {
+        left: 100%;
+      }
+      .btn-pulse:hover {
+        animation: pulse-sm 1s cubic-bezier(0.4, 0, 0.6, 1);
+      }
+      @keyframes pulse-sm {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.5); }
+        50% { box-shadow: 0 0 0 0.5rem rgba(249, 115, 22, 0); }
+      }
+      .scroll-reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+      .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+      #root > div {
+        transition: transform 0.3s ease-in-out;
+      }
+      body.cart-open #root > div {
+        transform: translateX(-320px);
+      }
+      
+      /* Animations for hero glass effect */
+      @keyframes slow-float-and-rotate {
+        0% { transform: translate(0, 0) rotate(var(--initial-rotate, 0deg)); }
+        50% { transform: translate(-4px, 6px) rotate(calc(var(--initial-rotate, 0deg) - 0.5deg)); }
+        100% { transform: translate(0, 0) rotate(var(--initial-rotate, 0deg)); }
+      }
+
+      @keyframes water-shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+
+      .animated-hero-glass {
+        animation: slow-float-and-rotate 25s ease-in-out infinite;
+      }
+      
+      .water-shimmer {
+        position: relative;
+        overflow: hidden;
+      }
+      .water-shimmer::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(
+          110deg,
+          rgba(255, 255, 255, 0) 40%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0) 60%
+        );
+        background-size: 200% 100%;
+        animation: water-shimmer 15s linear infinite;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
